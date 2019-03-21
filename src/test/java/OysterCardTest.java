@@ -72,4 +72,32 @@ class OysterCardTest {
         assertFalse(oysterCard.isInJourney());
     }
 
+    @Test
+    @DisplayName("Refuse user to touch unless they have enough balance")
+    void touchInMinimumBalance() {
+        oysterCard.deductMoneyFromCard(9.5);
+        assertFalse(oysterCard.touchIn());
+    }
+
+    @Test
+    @DisplayName("Deduct money from user account when they touch out")
+    void touchOutDeductMoney() {
+        oysterCard.touchIn();
+        oysterCard.touchOut();
+        assertEquals((Double) 9.0, oysterCard.getMoney());
+    }
+
+    @Test
+    @DisplayName("User can only touch out if in journey")
+    void touchOutInJourney() {
+        assertFalse(oysterCard.touchOut());
+    }
+
+    @Test
+    @DisplayName("User cant touch in if already in journey")
+    void touchInJourney() {
+        oysterCard.touchIn();
+        assertFalse(oysterCard.touchIn());
+    }
+
 }
