@@ -43,5 +43,13 @@ class OysterCardTest {
         assertEquals((Double) 10.0, oysterCard.getMoney());
     }
 
+    @ParameterizedTest
+    @DisplayName("Allow user to deduct money from card")
+    @CsvSource({"8.0, 2.0" , "5 , 5.0", "10.0 , 0.0", "10.0 , -10"})
+    void deductMoneyFromCard(double expectedValue, double amount) {
+        oysterCard.deductMoneyFromCard(amount);
+        assertEquals((Double) expectedValue , oysterCard.getMoney());
+    }
+
 
 }
