@@ -51,5 +51,25 @@ class OysterCardTest {
         assertEquals((Double) expectedValue , oysterCard.getMoney());
     }
 
+    @Test
+    @DisplayName("When user touch in user is in journey")
+    void touchIn() {
+        oysterCard.touchIn();
+        assertTrue(oysterCard.isInJourney());
+    }
+
+    @Test
+    @DisplayName("When user touch out user is not in journey")
+    void touchOut(){
+        oysterCard.touchIn();
+        oysterCard.touchOut();
+        assertFalse(oysterCard.isInJourney());
+    }
+
+    @Test
+    @DisplayName("User on default is not in journey until touch in")
+    void inJourneyDefault() {
+        assertFalse(oysterCard.isInJourney());
+    }
 
 }
