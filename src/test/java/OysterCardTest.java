@@ -42,14 +42,14 @@ class OysterCardTest {
         oysterCard.addMoneyToCard(100.0);
         assertEquals((Double) 10.0, oysterCard.getMoney());
     }
-
-    @ParameterizedTest
-    @DisplayName("Allow user to deduct money from card")
-    @CsvSource({"8.0, 2.0" , "5 , 5.0", "10.0 , 0.0", "10.0 , -10"})
-    void deductMoneyFromCard(double expectedValue, double amount) {
-        oysterCard.deductMoneyFromCard(amount);
-        assertEquals((Double) expectedValue , oysterCard.getMoney());
-    }
+//    Made method private Test not needed anymore
+//    @ParameterizedTest
+//    @DisplayName("Allow user to deduct money from card")
+//    @CsvSource({"8.0, 2.0" , "5 , 5.0", "10.0 , 0.0", "10.0 , -10"})
+//    void deductMoneyFromCard(double expectedValue, double amount) {
+//        oysterCard.deductMoneyFromCard(amount);
+//        assertEquals((Double) expectedValue , oysterCard.getMoney());
+//    }
 
     @Test
     @DisplayName("When user touch in user is in journey")
@@ -75,7 +75,7 @@ class OysterCardTest {
     @Test
     @DisplayName("Refuse user to touch unless they have enough balance")
     void touchInMinimumBalance() {
-        oysterCard.deductMoneyFromCard(9.5);
+        oysterCard = new OysterCard(0.5, "Ahmed");
         assertFalse(oysterCard.touchIn());
     }
 
@@ -90,7 +90,7 @@ class OysterCardTest {
     @Test
     @DisplayName("User can only touch out if in journey")
     void touchOutInJourney() {
-        assertFalse(oysterCard.touchOut());
+        assertTrue(oysterCard.touchOut());
     }
 
     @Test

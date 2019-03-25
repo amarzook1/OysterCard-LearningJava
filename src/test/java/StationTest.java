@@ -60,4 +60,11 @@ class StationTest {
         assertFalse(oysterCard.isInJourney());
     }
 
+    @Test
+    @DisplayName("Cant touch in station if already in journey")
+    void touchInIfAlreadyInJourney() {
+        harrow.touchIn(oysterCard);
+        assertTrue(oysterCard.isInJourney());
+    }
+
 }
