@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class OysterCardTest {
@@ -99,5 +100,13 @@ class OysterCardTest {
         oysterCard.touchIn();
         assertFalse(oysterCard.touchIn());
     }
+//
+//    @Test
+//    @DisplayName("Testing journey history output")
+//    void journeyHistoryOutput() {
+//        oysterCard.viewAllMyJourneys();
+//        assertEquals("Hello World", outContent.toString().trim());
+//    }
+
 
 }

@@ -13,6 +13,15 @@ public class OysterCard {
         this.customerName = customerName;
     }
 
+    public void viewAllMyJourneys() {
+        if(entryStation.size() == 0 || exitStation.size() == 0 || entryStation.size() != exitStation.size()){
+            System.out.println("Please complete your current journey or start one");
+        }
+        for(int i = 0; i < exitStation.size(); i++) {
+            System.out.println("From: " + entryStation.get(i) + " To: " + exitStation.get(i));
+        }
+    }
+
     public ArrayList<String> getExitStation() {
         return exitStation;
     }

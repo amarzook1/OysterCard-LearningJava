@@ -1,8 +1,10 @@
 public class Station {
     private String name;
+    private int zone;
 
-    public Station(String name) {
+    public Station(String name, int zone) {
         this.name = name;
+        this.zone = zone;
     }
 
     public void touchIn(OysterCard oysterCard) {
@@ -21,5 +23,9 @@ public class Station {
 
     public String getName() {
         return name;
+    }
+
+    public int getZone() {
+        return zone;
     }
 }
